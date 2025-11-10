@@ -7,7 +7,8 @@ import main.java.infra.config.Config;
 
 import java.awt.*;
 import java.net.URI;
-import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
@@ -84,14 +85,12 @@ public class LinksService {
     }
 
     private void removeDeadLinks() {
-        String[] deletedLinks = new String[getLinks().size()];
+        List<String> deletedLinks = new ArrayList<>();
 
-        int i = 0;
         for (Link link : links.values()) {
             link.isExpired();
-            System.out.println(link.isExpired());
 
-            if (!link.isLinkAlive()) deletedLinks[i++] = removeLink(link).getLinkId();
+            if (!link.isLinkAlive()) deletedLinks.add(removeLink(link).getLinkId());
         }
 
         if (isFirstMessageForDeleted) {
@@ -102,7 +101,7 @@ public class LinksService {
 
         // Системный вывод для уведомления пользователя об удаленных системой ссылках
         System.out.println("---SYSTEM-INFO: deleted links list by interval---");
-        System.out.println(Arrays.toString(deletedLinks));
+        System.out.println(deletedLinks.isEmpty() ? "[]" : deletedLinks);
         System.out.println("---SYSTEM-INFO: deleted links list by interval---");
     }
 
