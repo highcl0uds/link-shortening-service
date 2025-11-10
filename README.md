@@ -14,10 +14,10 @@
 
 ## Архитектура
 
-Проект построен по принципу разделения на слои (core/infra/UI):
+Проект построен по принципу разделения на слои (core/infra/UI/util):
 
 - **Core** - бизнес-логика (модели Link/User, сервисы LinksService/UsersService)
-- **Infrastructure** - конфигурация приложения (Config)
+- **Infra** - конфигурация приложения (Config)
 - **UI** - консольный интерфейс (MenuService)
 - **Utils** - вспомогательные классы (ShortIDGenerator с использованием SecureRandom)
 
@@ -40,8 +40,8 @@ java -jar target/link-shortening-service-1.0.0.jar
 **Способ 2 - ручная компиляция:**
 ```bash
 mkdir -p out/production
-javac -d out/production -sourcepath src/main/java $(find src/main/java -name "*.java")
-java -cp out/production main.Main
+javac -encoding UTF-8 -d out/production -sourcepath src/main/java $(find src/main/java -name "*.java")
+java -cp out/production main.java.Main
 ```
 
 ## Конфигурация

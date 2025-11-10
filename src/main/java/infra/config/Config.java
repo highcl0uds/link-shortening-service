@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Config {
-    private static final String CFG_FILE = "main.java.infra.config.properties";
+    private static final String CFG_FILE = "config.properties";
     private static final Properties properties = new Properties();
 
     static {
         try {
             properties.load(new FileInputStream(CFG_FILE));
         } catch (IOException e) {
-            System.out.printf("Error loading file: %s... Using default...", CFG_FILE);
+            System.out.printf("Ошибка загрузки файла: %s... Используем дефолтные значения...", CFG_FILE);
         }
     }
 
