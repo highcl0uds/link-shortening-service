@@ -1,6 +1,6 @@
 package main.java.UI.MenuService;
 
-import main.java.core.enums.NavigatuionResultEnum;
+import main.java.core.enums.NavigationResultEnum;
 import main.java.core.models.Link;
 import main.java.core.models.User;
 import main.java.core.services.LinksService;
@@ -171,7 +171,7 @@ public class MenuService {
             return;
         };
 
-        NavigatuionResultEnum navResult = linksService.navigateToLink(link);
+        NavigationResultEnum navResult = linksService.navigateToLink(link);
 
         switch (navResult) {
             case INVALID_LINK:

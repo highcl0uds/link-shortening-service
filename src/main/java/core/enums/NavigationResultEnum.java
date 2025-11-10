@@ -1,6 +1,6 @@
 package main.java.core.enums;
 
-public enum NavigatuionResultEnum {
+public enum NavigationResultEnum {
     SUCCESS,
     EXPIRED,
     MAX_CONVERSION,

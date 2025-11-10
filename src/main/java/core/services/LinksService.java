@@ -1,6 +1,6 @@
 package main.java.core.services;
 
-import main.java.core.enums.NavigatuionResultEnum;
+import main.java.core.enums.NavigationResultEnum;
 import main.java.core.models.Link;
 import main.java.core.models.User;
 import main.java.infra.config.Config;
@@ -45,18 +45,18 @@ public class LinksService {
         return link;
     }
 
-    public NavigatuionResultEnum navigateToLink(Link link) {
-        if (link == null) return NavigatuionResultEnum.INVALID_LINK;
-        if (link.isMaxConversionAchieved()) return NavigatuionResultEnum.MAX_CONVERSION;
-        if (link.isExpired()) return NavigatuionResultEnum.EXPIRED;
+    public NavigationResultEnum navigateToLink(Link link) {
+        if (link == null) return NavigationResultEnum.INVALID_LINK;
+        if (link.isMaxConversionAchieved()) return NavigationResultEnum.MAX_CONVERSION;
+        if (link.isExpired()) return NavigationResultEnum.EXPIRED;
 
         try {
             Desktop.getDesktop().browse(new URI(link.getFullUrl()));
             link.increaseConversionsAmount();
 
-            return NavigatuionResultEnum.SUCCESS;
+            return NavigationResultEnum.SUCCESS;
         } catch (Exception e) {
-            return NavigatuionResultEnum.ERROR;
+            return NavigationResultEnum.ERROR;
         }
     }
 
